@@ -27,7 +27,7 @@ parseBody <- function(body, charset = "UTF-8"){
   # Is it JSON data?
   if (stri_startswith_fixed(body, "{")) {
     # Handle JSON with jsonlite
-    ret <- jsonlite::fromJSON(body)
+    ret <- jsonlite::fromJSON(body, simplifyDataFrame = FALSE)
   } else {
     # If not handle it as a query string
       ret <- parseQS(body)
